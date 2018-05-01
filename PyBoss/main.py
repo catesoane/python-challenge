@@ -73,7 +73,7 @@ with open(csvpath, 'r', newline="") as csvfile:
     first_name.append(row["Name"].split(" ")[0])
     last_name.append(row["Name"].split(" ") [1])
     dob.append(row["DOB"].split("-")[1] + "/" + row["DOB"].split("-")[2] + "/" + row["DOB"].split("-")[0])
-    ssn.append("***-**-" + (row["SSN"].split("-")[2])
+    ssn.append("***-**-" + (row["SSN"].split("-")[2]))
     state.append(state_abbrev[row["State"]])
     
 new_data = zip(emp_id, first_name, last_name, dob, ssn, state)
