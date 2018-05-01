@@ -78,13 +78,9 @@ with open(csvpath, 'r', newline="") as csvfile:
     
 new_data = zip(emp_id, first_name, last_name, dob, ssn, state)
 
-output_path = os.path.join("..", "Output", "new_data.csv")
+output_path = os.path.join("Output", "new_data.csv")
 with open(output_path, 'w', newline="") as csvfile:
      csvwriter = csv.writer(csvfile, delimiter=",")
      csvwriter.writerow(["Emp ID", "First Name", "Last Name", "DOB", "SSN", "State"])
      csvwriter.writerows(new_data)
-               
-
-
               
-          
