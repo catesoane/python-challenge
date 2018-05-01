@@ -27,7 +27,7 @@ with open (csvpath, 'r', newline="") as csvfile:
       revenue_change = this_month_revenue - last_month_revenue
       revenue_changes.append(revenue_change)
       last_month_revenue = this_month_revenue
-      break
+      
  
 #check progress
 print(revenue_changes)
