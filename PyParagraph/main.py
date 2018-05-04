@@ -21,10 +21,10 @@ with open(filepath, 'r', newline="") as textfile:
     #print(words)
     #print(paragraph)
 
-    sentences = re.split(r'([A-Z][^\.!?]*[\.!?])', paragraph)
-    for s in sentences:
-        if s != '' and s != ' ':
-            new_sentences.append(s)
+    sentences = re.split("(?<=[.!?]) +", paragraph)
+    #for s in sentences:
+        #if s != '' and s != ' ':
+            #new_sentences.append(s)
     #print("ns = ", new_sentences)
     word_count = len(words)
 
@@ -32,7 +32,8 @@ with open(filepath, 'r', newline="") as textfile:
     
     
 
-    sentence_count = len(sentences)
+    #sentence_count = len(sentences)
+    sentence_count = paragraph.count(".") + paragraph.count("?") + paragraph.count("!")
     #print(sentence_count)
 
     words_per_sentence = word_count/sentence_count
