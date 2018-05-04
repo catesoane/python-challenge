@@ -9,6 +9,7 @@ sentence_count = 0
 words_per_sentence = 0
 total_letters = 0
 word_length = 0
+new_sentences = []
 
 file_num = input("Please enter file number 1 or 2: ")
 filepath = os.path.join("raw_data", "paragraph_" + str(file_num) +".txt")
@@ -16,10 +17,27 @@ filepath = os.path.join("raw_data", "paragraph_" + str(file_num) +".txt")
 with open(filepath, 'r', newline="") as textfile:
     paragraph = textfile.read()
     words = paragraph.split(" ")
-    sentences = re.split("(?&lt;=[.!?]) +", paragraph)
+
+    #print(words)
+    #print(paragraph)
+
+    sentences = re.split(r'([A-Z][^\.!?]*[\.!?])', paragraph)
+    for s in sentences:
+        if s != '' and s != ' ':
+            new_sentences.append(s)
+    #print("ns = ", new_sentences)
     word_count = len(words)
+
+    #print(word_count)
+    
+    
+
     sentence_count = len(sentences)
+    #print(sentence_count)
+
     words_per_sentence = word_count/sentence_count
+    
+    #print(words_per_sentence)
 
     for character in paragraph:
         if character.isalpha() == True:
@@ -27,8 +45,21 @@ with open(filepath, 'r', newline="") as textfile:
 
     word_length = total_letters/word_count
 
+    #print(word_length)
 
-output_file = os.path.join("Output", "paragraph_analysis_" + str(file_num) + ".txt")
+print("\nParagraph Analysis")
+print("-" * 25)
+print("Approximate Word Count:", str(word_count))
+print("Approximate Sentence Count:", str(sentence_count))
+print("Approximate Letter Count:", str(word_length))
+print("Approximate Sentence Length:", str(words_per_sentence))
+
+
+
+
+output_file = "paragraph_analysis_" + str(file_num) + ".txt"
+output_file_path = os.path.join("Output", output_file)
+
 with open(output_file, 'w', newline="") as textfile:
     textfile.writelines("Paragraph Analysis\n-----------------\nApproximate Word Count: "
                         + str(word_count) + "\nApproximate Sentence Count: " + str(sentence_count) +
