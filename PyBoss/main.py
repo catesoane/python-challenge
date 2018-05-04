@@ -1,9 +1,8 @@
 import os
 import csv
 
-filename = input("Please enter a name of a file: ")
-
-csvpath = os.path.join("raw_data", filename)
+file_num = input("Please enter file number 1 or 2: ")
+csvpath = os.path.join("raw_data", "employee_data_" + str(file_num) + ".csv")
 
 state_abbrev = { 
     "Alabama": "AL",
@@ -78,8 +77,7 @@ with open(csvpath, 'r', newline="") as csvfile:
     
 new_data = zip(emp_id, first_name, last_name, dob, ssn, state)
 
-#output_path = os.path.join("Output", "new_data.csv")
-output_path = os.path.join("Output", "new_data2.csv")
+output_path = os.path.join("Output", "new_data_" + str(file_num) + ".csv")
 with open(output_path, 'w', newline="") as csvfile:
      csvwriter = csv.writer(csvfile, delimiter=",")
      csvwriter.writerow(["Emp ID", "First Name", "Last Name", "DOB", "SSN", "State"])
