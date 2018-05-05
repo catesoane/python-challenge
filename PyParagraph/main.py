@@ -22,9 +22,9 @@ with open(filepath, 'r', newline="") as textfile:
     #print(paragraph)
 
     sentences = re.split("(?<=[.!?]) +", paragraph)
-    #for s in sentences:
-        #if s != '' and s != ' ':
-            #new_sentences.append(s)
+    for s in sentences:
+        if s != '' and s != ' ':
+            new_sentences.append(s)
     #print("ns = ", new_sentences)
     word_count = len(words)
 
