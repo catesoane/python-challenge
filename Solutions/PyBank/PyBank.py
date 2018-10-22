@@ -1,10 +1,7 @@
-# -*- coding: UTF-8 -*-
-"""PyBank Homework Solution."""
-
 # Dependencies
 import csv
 
-# Files to load and output (Remember to change these)
+# Files to load and output
 file_to_load = "raw_data/budget_data_1.csv"
 file_to_output = "analysis/budget_analysis_1.txt"
 
