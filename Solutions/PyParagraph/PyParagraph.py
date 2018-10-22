@@ -1,6 +1,3 @@
-# -*- coding: UTF-8 -*-
-"""PyParagraph Homework Solution."""
-
 # Incorporate regular expressions (helpful for splitting by punctuation)
 import re
 
